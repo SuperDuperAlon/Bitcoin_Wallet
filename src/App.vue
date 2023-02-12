@@ -3,12 +3,14 @@ import { RouterLink, RouterView } from 'vue-router'
 import AppHeader from '@/cmps/app-header.vue'
 </script>
 
-<template>
+<template class="index-layout">
+  <wrapper class="index-layout">
   <AppHeader />
   <main>
       <RouterView />
   </main>
   <AppFooter />
+</wrapper>
 </template>
 
 <style scoped>

@@ -1,7 +1,7 @@
 <template>
     <div v-if="contact" class="contact-details">
-        <h2>{{contact.vendor}}</h2>
-        <h3>{{contact.speed}}</h3>
+        <h2>{{contact.name}}</h2>
+        <img v-bind:src="'https://robohash.org/'+ contact.name + '?set=set4'" />
         <RouterLink to="/contact">
             <button>Back</button>
         </RouterLink>
@@ -18,7 +18,7 @@ export default {
     },
     async created(){
         const contactId = this.$route.params._id
-        this.contact = await contactService.get(contactId)
+        this.contact = await contactService.getContactById(contactId)
     }
 }
 </script>

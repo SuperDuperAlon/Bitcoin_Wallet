@@ -1,8 +1,7 @@
 <template>
     <div class="main-container">
-        <h1>a Message</h1>
         <!-- <UserMsg /> -->
-        <!-- <ContactFilter @filter="onSetFilterBy" /> -->
+        <ContactFilter @filter="onSetFilterBy" />
         <ContactList @remove="removeContact" v-if="contacts" :contacts="filteredContacts" />
         <!-- <RouterLink to="/contact/edit"><button>Add a Contact</button></RouterLink> -->
     </div>
@@ -14,7 +13,7 @@ import { eventBus } from '@/services/eventBus.service.js'
 import { bitcoinService } from '@/services/bitcoin.service.js'
 
 import ContactList from '@/cmps/contact-list.vue'
-// import ContactFilter from '@/cmps/contact-filter.vue'
+import ContactFilter from '@/cmps/contact-filter.vue'
 // import UserMsg from '@/cmps/user-msg.vue'
 
 export default {
@@ -26,9 +25,6 @@ export default {
     },
     async created() {
         this.contacts = await contactService.getContacts()
-        this.rates = await bitcoinService.getRate()
-        this.getAvgBlockSize = await bitcoinService.getAvgBlockSize()
-        this.getMarketPriceHistory = await bitcoinService.getMarketPriceHistory()
     },
     methods: {
         async removeContact(contactId) {
@@ -48,12 +44,12 @@ export default {
     computed: {
         filteredContacts() {
             const regex = new RegExp(this.filterBy.txt, 'i')
-            return this.contacts.filter(contact => regex.test(contact.vendor))
+            return this.contacts.filter(contact => regex.test(contact.name || contact.email))
         },
     },
     components: {
         ContactList,
-        // ContactFilter,
+        ContactFilter,
         // UserMsg,
     },
 }

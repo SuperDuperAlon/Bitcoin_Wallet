@@ -1,14 +1,7 @@
 <template>
-  <header class="index-layout full">
-    <h1>BitVault</h1>
-    <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/contact">Contacts</RouterLink>
-      <RouterLink to="/stats">Stats</RouterLink>
-    </nav>
-    <h3 v-if="currRate">{{ getCurrValue }}</h3>
-    <h3 v-if="user">{{ user.name }}</h3>
-  </header>
+  <h1>this is the homepage</h1>
+  <h3 v-if="currRate">{{ getCurrValue }}</h3>
+  <h3 v-if="user">{{ user.name }}</h3>
 </template>
 
 <script>
@@ -30,9 +23,6 @@ export default {
       const btcMarketValue = this.currRate.USD.last;
       return "$" + btcMarketValue.toLocaleString("US-en");
     },
-    // getRealNumber(num) {
-    //   return num.toLocaleString();
-    // },
   },
 };
 </script>

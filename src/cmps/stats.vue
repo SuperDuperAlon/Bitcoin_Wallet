@@ -1,14 +1,13 @@
 <template>
-    <header>
-        <h1>Hello Alon</h1>
-        <!-- <nav>
-            <RouterLink to="/">Home</RouterLink>
-            <RouterLink to="/car">Cars</RouterLink>
-            <RouterLink to="/about">About</RouterLink>
-        </nav> -->
-    </header>
-</template>
-
-<script>
-export default {}
-</script>
+    <LineChart />
+  </template>
+  
+  <script>
+  import LineChart from './line.vue'
+  
+  export default {
+    components: {
+      LineChart
+    }
+  }
+  </script>

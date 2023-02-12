@@ -5,9 +5,10 @@ const user = {
 }
 
 export const userService = {
-    getUser,
+    getUser
 }
 
-function getUser() {
-    
+async function getUser() {
+    console.log(user);
+    return Promise.resolve(user)
 }

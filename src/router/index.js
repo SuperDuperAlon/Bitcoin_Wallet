@@ -4,6 +4,7 @@ import HomeView from "../views/HomeView.vue";
 import ContactIndex from "../cmps/contact-index.vue";
 import Stats from "../cmps/stats.vue";
 import ContactDetails from "../cmps/contact-details.vue"
+import ContactEdit from "../views/contact-edit.vue"
 
 // import ContactDetails from '../cmps/contact-details.vue'
 // import ContactEdit from '../pages/contact-edit.vue'
@@ -27,10 +28,10 @@ const routerOptions = {
         path: '/contact/:_id',
         component: ContactDetails,
     },
-    // {
-    //     path: '/contact/edit/:_id?',
-    //     component: ContactEdit,
-    // },
+    {
+        path: '/contact/edit/:_id?',
+        component: ContactEdit,
+    },
     // {
     //     path: '/about',
     //     // route level code-splitting

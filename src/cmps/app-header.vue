@@ -1,13 +1,19 @@
 <template>
   <header class="index-layout full">
-    <h1>BitVault</h1>
-    <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/contact">Contacts</RouterLink>
-      <RouterLink to="/stats">Stats</RouterLink>
-    </nav>
-    <h3 v-if="currRate">{{ getCurrValue }}</h3>
-    <h3 v-if="user">{{ user.name }}</h3>
+    <div class="index-layout flex space-between align-center">
+      <div class="logo">
+        <h1>BitVault</h1>
+
+        <h3 v-if="currRate">{{ getCurrValue }}</h3>
+        <h3 v-if="user">{{ user.name }}</h3>
+      </div>
+
+      <nav>
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/contact">Contacts</RouterLink>
+        <RouterLink to="/stats">Stats</RouterLink>
+      </nav>
+    </div>
   </header>
 </template>
 

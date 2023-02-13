@@ -1,16 +1,17 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import AppHeader from '@/cmps/app-header.vue'
+import { RouterLink, RouterView } from "vue-router";
+import AppHeader from "@/cmps/app-header.vue";
+import AppFooter from "@/cmps/app-footer.vue";
 </script>
 
 <template class="index-layout">
-  <wrapper class="index-layout">
   <AppHeader />
-  <main>
+  <wrapper class="index-layout">
+    <main>
       <RouterView />
-  </main>
+    </main>
+  </wrapper>
   <AppFooter />
-</wrapper>
 </template>
 
 <style scoped>

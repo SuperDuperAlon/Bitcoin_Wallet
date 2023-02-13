@@ -10,6 +10,7 @@
 html {
   font-family: circular;
   line-height: 1.25rem;
+
   // color: $clr2;
 }
 
@@ -18,7 +19,16 @@ body {
   margin: 0;
   max-width: 100vw;
   background-color: rgb(226, 144, 160);
+  min-height: 100vh;
+  >:last-child{
+    position: absolute;
+    bottom: 0
+  }
   // margin: auto;
+}
+
+main {
+  max-height: fit-content;
 }
 
 h1,

@@ -1,5 +1,5 @@
 const user = {
-    name: "Puki Ben David",
+    name: "Alon Mlievski",
     balance: 100,
     transactions: []
 }

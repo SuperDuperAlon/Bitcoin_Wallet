@@ -8,6 +8,7 @@
 
     <button>Save</button>
   </form>
+  <button @click="removeContact">X</button>
 </template>
 
 <script>
@@ -31,6 +32,17 @@ export default {
       await contactService.saveContact(this.contact);
       this.$router.push("/contact");
     },
+    async removeContact(contactId) {
+            const msg = {
+                txt: `Contact ${contactId} deleted.`,
+                type: 'success',
+                timeout: 2500,
+            }
+            await contactService.deleteContact(contactId)
+            // this.contacts = this.contacts.filter(contact => contact._id !== contactId)
+            this.$router.push("/contact");
+            // eventBus.emit('user-msg', msg)
+        },
   },
 };
 </script>

@@ -15,7 +15,7 @@
         </div>
         <div class="flex">
           <button>Contact</button>
-          <button>X</button>
+          <button @click="removeContact(contact._id)">X</button>
         </div>
       </div>
     </div>
@@ -23,11 +23,32 @@
 </template>
 
 <script>
+import { contactService } from "../services/contact.service.js";
 export default {
   props: {
     contact: {
       type: Object,
       required: true,
+    },
+  },
+  created() {
+    this.$store.dispatch({ type: "loadContacts" });
+  },
+  methods: {
+    async loadContacts() {
+      this.contacts = await contactService.getContacts(this.filterBy)
+    },
+    async removeContact(contactId) {
+      // const msg = {
+      //   txt: `Contact ${contactId} deleted.`,
+      //   type: "success",
+      //   timeout: 2500,
+      // };
+      await contactService.deleteContact(contactId)
+      this.contacts = (this.contacts).filter(
+        (contact) => contact._id !== contactId
+      )
+      // eventBus.emit('user-msg', msg)
     },
   },
 };

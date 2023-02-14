@@ -30,18 +30,6 @@ export default {
     this.$store.dispatch({ type: "loadContacts" });
   },
   methods: {
-    async removeContact(contactId) {
-      const msg = {
-        txt: `Contact ${contactId} deleted.`,
-        type: "success",
-        timeout: 2500,
-      };
-      await contactService.deleteContact(contactId);
-      this.contacts = this.contacts.filter(
-        (contact) => contact._id !== contactId
-      );
-      // eventBus.emit('user-msg', msg)
-    },
     onSetFilterBy(filterBy) {
       this.filterBy = filterBy;
     },

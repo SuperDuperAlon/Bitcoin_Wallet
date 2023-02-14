@@ -21,10 +21,10 @@ const routerOptions = {
       path: "/contact",
       component: ContactIndex,
     },
-    {
-      path: "/stats",
-      component: Stats,
-    },
+    // {
+    //   path: "/stats",
+    //   component: Stats,
+    // },
     {
         path: '/contact/:_id',
         component: ContactDetails,

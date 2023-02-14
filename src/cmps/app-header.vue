@@ -8,11 +8,14 @@
         <RouterLink to="/stats">Stats</RouterLink>
         <div id="indicator"></div>
       </nav>
-      <div class="flex column">
+      <div v-if="user" class="flex column">
         <h3 v-if="user">Hello {{ user.name }}</h3>
         <h3 v-if="currRate" class="mar-r4 fs12">
           BTC Price {{ getCurrValue }}
         </h3>
+      </div>
+      <div v-if="!user" class="flex column">
+        <RouterLink to="/signup"> <button>Sign up</button></RouterLink>
       </div>
     </div>
   </header>
@@ -29,7 +32,7 @@ export default {
     };
   },
   async created() {
-    this.user = await userService.getUser();
+    this.user = await userService.getLoggedinUser();
     this.currRate = await bitcoinService.getRate();
   },
   computed: {

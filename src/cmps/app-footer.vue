@@ -1,18 +1,7 @@
 <template>
-    <footer class="index-layout full">
-      <div class="index-layout flex space-between">
-        <div class="logo">
-          <h1>BitVault</h1>
-  
-          <h3 v-if="currRate">{{ getCurrValue }}</h3>
-          <h3 v-if="user">{{ user.name }}</h3>
-        </div>
-  
-        <nav>
-          <RouterLink to="/">Home</RouterLink>
-          <RouterLink to="/contact">Contacts</RouterLink>
-          <RouterLink to="/stats">Stats</RouterLink>
-        </nav>
+    <footer class="full">
+      <div class="flex justify-center align-center">
+        <h3>Bitvault - Made by Alon Mlievski</h3>
       </div>
     </footer>
   </template>
@@ -36,9 +25,6 @@
         const btcMarketValue = this.currRate.USD.last;
         return "$" + btcMarketValue.toLocaleString("US-en");
       },
-      // getRealNumber(num) {
-      //   return num.toLocaleString();
-      // },
     },
   };
   </script>

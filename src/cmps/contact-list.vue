@@ -1,41 +1,43 @@
 <template>
-    <section>
-        <TransitionGroup name="list" tag="ul" class="contact-list">
-            <li class="contact-preview" v-for="contact in contacts" :key="contact._id">
-                <ContactPreview :contact="contact" />
-                <section class="actions">
-                    <RouterLink :to="`/contact/${contact._id}`">
-                        <button>Details</button>
-                    </RouterLink>
-                    <RouterLink :to="`/contact/edit/${contact._id}`">
-                        <button>Edit</button>
-                    </RouterLink>
-                    <button @click="onRemoveContact(contact._id)">x</button>
-                </section>
-            </li>
-        </TransitionGroup>
-    </section>
+  <section>
+    <TransitionGroup name="list" tag="ul" class="contact-list">
+      
+      <li
+        class="contact-preview"
+        v-for="contact in contacts"
+        :key="contact._id"
+      >
+        <ContactPreview :contact="contact" />
+        <!-- <section class="actions">
+          <button @click="onRemoveContact(contact._id)">x</button>
+        </section> -->
+      </li>
+    </TransitionGroup>
+  </section>
 </template>
 
 <script>
-import ContactPreview from '@/cmps/contact-preview.vue'
+import ContactPreview from "@/cmps/contact-preview.vue";
 export default {
-    // props: ['contacts']
-    props: {
-        contacts: {
-            type: Array,
-            required: true,
-        },
+  // props: ['contacts']
+  props: {
+    contacts: {
+      type: Array,
+      required: true,
     },
-    methods: {
-        onRemoveContact(contactId) {
-            this.$emit('remove', contactId)
-        },
+  },
+  methods: {
+    onRemoveContact(contactId) {
+      
+      this.$emit("remove", contactId);
     },
-    components: {
-        ContactPreview,
-    },
-}
+  },
+  components: {
+    ContactPreview,
+  },
+};
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+
+</style>

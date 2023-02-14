@@ -1,7 +1,15 @@
 <template>
-  <h1>this is the homepage</h1>
-  <h3 v-if="currRate">{{ getCurrValue }}</h3>
-  <h3 v-if="user">{{ user.name }}</h3>
+  <div class="homepage">
+    <div>
+      <h1 class="mar-b8 fs48">Free your money and invest with confidence</h1>
+      <h3>invest in one safe and simple app.</h3>
+    </div>
+    <div>
+      <img class="home-img" src="..//assets/imgs/bitcoin.png" alt="" />
+    </div>
+  </div>
+  <!-- <h3 v-if="currRate">{{ getCurrValue }}</h3>
+  <h3 v-if="user">{{ user.name }}</h3> -->
 </template>
 
 <script>
@@ -26,3 +34,17 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.homepage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: inherit;
+
+  > * {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+</style>

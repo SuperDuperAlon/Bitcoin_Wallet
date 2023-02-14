@@ -1,10 +1,11 @@
 footer {
-position: relative;
-bottom: 0;
-background-color: aqua;
-    >* {
-        // display: flex;
-        // flex-direction: row;
-    }
-
+  display: flex;
+  justify-content: center;
+  background-color: lightgoldenrodyellow;
+  border-top: 1px solid lightgray;
+  min-height: 3rem;
+  > * {
+    // display: flex;
+    // flex-direction: row;
+  }
 }

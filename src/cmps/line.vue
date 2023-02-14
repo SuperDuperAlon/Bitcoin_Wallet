@@ -1,8 +1,7 @@
 <template>
-  <Line :data="data" :options="options" />
-  <div v-if="marketValue">
-    {{ getLabels }}
-  </div>
+<div class="chart-container">
+  <Bar v-if='chartData.labels' id="my-chart-id" :options="chartOptions" :data="chartData" />
+</div>
 </template>
 
 <script>
@@ -31,33 +30,34 @@ ChartJS.register(
 );
 
 export default {
+  name: "LineChart",
+  components: { Line },
   data() {
     return {
-      labels: null,
-      datasets: null,
-      marketValue: null,
+      chartData: {
+        labels: null,
+        datasets: [
+          {
+            label: "Value (USD)",
+            backgroundColor: "#f7931a99",
+            data: null,
+          },
+        ],
+      },
+      chartOptions: {
+        responsive: true,
+      },
     };
   },
   async created() {
-    this.marketValue = await bitcoinService.getMarketPriceHistory();
-    this.currRate = await bitcoinService.getRate();
-  },
-  components: {
-    Line,
-  },
-  methods: {
-    getLabels() {
-      console.log(this.marketValue);
-    },
-  },
-  computed: {
-    convertToRealDate() {
-        const timestamp = this.marketValue.values.x
-        
-    }
-  },
-  data() {
-    return chartConfig;
+    this.prices = await bitcoinService.getMarketPriceHistory();
+    console.log('this.prices.values:',this.prices.values)
+    this.chartData.labels = this.prices.values.map(value => {
+       const date = new Date(value.x*1000)
+       return `${date.getDate() + 1}.${date.getMonth() + 1}` 
+        })
+    this.chartData.datasets[0].data = this.prices.values.map(value => value.y)
+    console.log('this.chartData:',this.chartData)
   },
 };
 </script>

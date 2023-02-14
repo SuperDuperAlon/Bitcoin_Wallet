@@ -1,7 +1,7 @@
 <template>
     <div v-if="contact" class="contact-details">
         <h2>{{contact.name}}</h2>
-        <img v-bind:src="'https://robohash.org/'+ contact.name + '?set=set4'" />
+        <img v-bind:src="'https://robohash.org/'+ contact.name + '?set=set2'" />
         <RouterLink to="/contact">
             <button>Back</button>
         </RouterLink>

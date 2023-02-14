@@ -1,6 +1,17 @@
 .contact-list {
->* {
-    display: flex;
-}
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    align-items: stretch;
 }
 
+.contact-preview {
+    display: flex;
+    justify-content: space-between;
+}
+
+.preview {
+    background-color: rgb(255, 243, 228);
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+}
